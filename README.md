@@ -25,6 +25,19 @@ cartographie des inondations urbaines à Jakarta.
 L'étape 8 (classification supervisée Random Forest via Orfeo Toolbox) nécessite
 des polygones d'apprentissage tracés manuellement dans QGIS — non automatisée.
 
+## Temps d'exécution
+
+Sur une machine standard (Intel i5, 16 Go RAM, SSD NVMe), l'exécution complète
+des sept étapes prend **environ 10 minutes** pour les deux tuiles Sentinel-2
+(scène d'octobre 2024 + scène de mai 2025, ~700 Mo chacune avant traitement,
+ROI 40 × 40 km après découpe).
+
+Le temps peut varier sensiblement selon :
+
+- la configuration matérielle (SSD vs HDD impact majeur sur les étapes 1–3),
+- la taille de la ROI (par défaut 40 km, ajustable via les constantes du script),
+- le nombre de bandes/indices à calculer (les étapes 4–5 sont vectorisables).
+
 ## Exécution
 
 Depuis la console Python de QGIS Processing :
